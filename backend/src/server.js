@@ -5,7 +5,7 @@ import path from "path";
 
 import notesRoutes from "./routes/notesRoutes.js";
 import { connectDB } from "./config/db.js";
-import rateLimiter from "./middleware/rateLimiter.js";
+// import rateLimiter from "./middleware/rateLimiter.js";
 
 dotenv.config();
 
@@ -22,7 +22,7 @@ if (process.env.NODE_ENV !== "production") {
   );
 }
 app.use(express.json()); // this middleware will parse JSON bodies: req.body
-app.use(rateLimiter);
+// app.use(rateLimiter);
 
 // our simple custom middleware
 // app.use((req, res, next) => {
@@ -45,3 +45,8 @@ connectDB().then(() => {
     console.log("Server started on PORT:", PORT);
   });
 });
+
+
+
+
+// mongodb+srv://vkugatheesan:8ld54RtdSbpYAGbE@cluster0.3ghphly.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
