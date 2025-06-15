@@ -17,13 +17,19 @@ const __dirname = path.resolve();
 if (process.env.NODE_ENV !== "production") {
   app.use(
     cors({
-      origin: "http://localhost:5173,https://mern-thinkboard-eight.vercel.app/", // frontend Vercel URL
-
+      origin: "http://localhost:5173",
+      
     })
   );
 }
 app.use(express.json()); // this middleware will parse JSON bodies: req.body
+// app.use(rateLimiter);
 
+// our simple custom middleware
+// app.use((req, res, next) => {
+//   console.log(`Req method is ${req.method} & Req URL is ${req.url}`);
+//   next();
+// });
 
 app.use("/api/notes", notesRoutes);
 
