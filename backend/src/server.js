@@ -5,6 +5,7 @@ import path from "path";
 
 import notesRoutes from "./routes/notesRoutes.js";
 import { connectDB } from "./config/db.js";
+// import rateLimiter from "./middleware/rateLimiter.js";
 
 dotenv.config();
 
@@ -14,20 +15,15 @@ const __dirname = path.resolve();
 
 // middleware
 if (process.env.NODE_ENV !== "production") {
-  // app.use(
-  //   cors({
-  //     origin: "https://mern-thinkboard-eight.vercel.app/",
-  //       methods: ['GET', 'POST', 'PUT', 'DELETE']
-  //   })
-  // );
+  app.use(
+    cors({
+      origin: "http://localhost:5173,https://mern-thinkboard-eight.vercel.app/", // frontend Vercel URL
 
- app.use(cors({
-  origin: "https://mern-thinkboard-eight.vercel.app/", // frontend Vercel URL
-  credentials: true
-}));
-
+    })
+  );
 }
 app.use(express.json()); // this middleware will parse JSON bodies: req.body
+
 
 app.use("/api/notes", notesRoutes);
 
