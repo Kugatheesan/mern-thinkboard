@@ -17,8 +17,7 @@ const __dirname = path.resolve();
 if (process.env.NODE_ENV !== "production") {
   app.use(
     cors({
-      origin: "https://mern-thinkboard-eight.vercel.app/",
-       credentials: true
+      origin: "*",
       
     })
   );
