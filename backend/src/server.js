@@ -78,7 +78,7 @@ app.use("/api/notes", notesRoutes);
 
 // Root test route - for Render base URL
 app.get("/", (req, res) => {
-  res.send("✅ Backend API is running on Render");
+  res.send(" Backend API is running on Render");
 });
 
 // === Serve static frontend build (optional) ===
