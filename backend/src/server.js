@@ -74,7 +74,7 @@ app.use(
 app.use(express.json());
 
 // API routes
-app.use("/api/notes", notesRoutes);
+app.use("/api", notesRoutes);
 
 // Root test route - for Render base URL
 app.get("/", (req, res) => {
